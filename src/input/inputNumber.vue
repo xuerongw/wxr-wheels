@@ -38,13 +38,11 @@ export default {
     subNumber() {
       if (this.number > this.data.min) {
         this.number--;
-      } else {
-      }
+      } 
     },
     addNumber() {
       if (this.number < this.data.max) {
         this.number++;
-      } else {
       }
     },
   },
