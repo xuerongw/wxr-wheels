@@ -1,18 +1,16 @@
 <template>
   <div id="app">
-<dragPage></dragPage>
+    <dragPage></dragPage>
   </div>
 </template>
 
 <script>
-import dragPage from '@/dragForm/dragPage.vue'
+import dragPage from "@/dragForm/dragPage.vue";
 export default {
-  components: {dragPage},
+  components: { dragPage },
   name: "App",
   data() {
-    return {
-  
-    };
+    return {};
   },
   methods: {},
 };
@@ -25,5 +23,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height:100%
 }
 </style>

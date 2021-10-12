@@ -2,90 +2,139 @@ export const basicType = [
     {
         label: '单行文本框',
         type: 'input-text',
-        value: ''
+        value: '',
+        placeholder: '',
+        require: false,
+        maxLength: 20,
     },
     {
         label: '多行文本框',
         type: 'input-area',
-        value: ''
+        value: '',
+        placeholder: '',
+        require: false,
+        maxLength: 50000,
+
     },
     {
         label: '说明文字',
-        type: 'input',
-        value: ''
+        type: 'input-remarks',
+        value: '',
+        placeholder: '',
+        require: false,
+        maxLength: 20,
+
     },
     {
         label: '数字输入框',
         type: 'input-number',
-        value: ''
+        value: '',
+        //可输入的小数位数
+        float: '',
+        require: false,
     },
     {
         label: '金额输入框',
         type: 'input-money',
-        value: ''
+        value: '',
+        float: '',
+        //单位
+        unit: '',
+        require: false,
     },
-
     {
         label: '图片上传',
         type: 'upload-image',
-        value: ''
+        value: '',
+        require: false,
     },
     {
         label: '文件上传',
         type: 'upload-file',
-        value: ''
+        value: '',
+        require: false,
     },
     {
         label: '紧急程度',
         type: 'urgent-level',
-        value: ''
+        value: '',
+        require: false,
     },
 ]
 export const optionType = [
     {
         label: '单选框',
         type: 'radio',
-        value: ''
+        value: '',
+        opitons: [
+            {
+                label: '单选框选项一',
+                value: 'one'
+            },
+            {
+                label: '单选框选项二',
+                value: 'tow'
+            }
+        ],
+        require: false,
     },
     {
         label: '多选框',
         type: 'checkbox',
-        value: ''
+        value: '',
+        require: false,
+        opitons: [
+            {
+                label: '单选框选项一',
+                value: 'one'
+            },
+            {
+                label: '单选框选项二',
+                value: 'tow'
+            }
+        ],
     },
     {
         label: '人员选择',
         type: 'person-picker',
-        value: ''
+        value: '',
+        require: false,
     },
     {
         label: '部门选择',
         type: 'deparment-picker',
-        value: ''
+        value: '',
+        require: false,
     },
 ]
 export const dateType = [
     {
         label: '日期选择',
         type: 'dete-picker',
-        value: ''
+        value: '',
+        require: false,
     },
     {
         label: '日期区间',
         type: 'date-range',
-        value: ''
+        value: '',
+        require: false,
     },
 ]
-export const seniorType=[
+export const seniorType = [
     {
         label: '地理位置',
         type: 'location',
-        value: ''   
+        value: '',
+        require: false,
     }
 ]
-export const detailType=[
+export const detailType = [
     {
         label: '明细表格',
         type: 'detail-form',
-        value: ''     
+        value: '',
+        require: false,
+        detail:[]
     }
 ]
