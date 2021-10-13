@@ -1,12 +1,19 @@
 <template>
-  <div class="content-middle">
+  <div class="content-middle" >
     <div class="header"></div>
-    <div class="content">
+    <div class="content" >
       <img src="@/assets/phoneHeader.svg" alt="" />
-      <div v-for="item in templateData" :key="item.label">
-        <span>{{ item.label }}</span>
-        <span>*</span>
-        <span>{{ item.placeholder }}</span>
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="box-item"
+        @click="checkedItem(item, index)"
+        :class="{ 'box-item-checked': currentIndex == index }"
+      >
+        <p class="label">{{ item.label }}</p>
+        <span v-if="item.require" class="require">*</span>
+        <p class="itemplaceholder">{{ item.placeholder }}</p>
+        <!-- <img src="" alt="" class="delItem"> -->
       </div>
     </div>
     <div class="button"></div>
@@ -15,10 +22,25 @@
 
 <script>
 export default {
+  props: {
+    items: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+  },
   data() {
     return {
       templateData: [],
+      currentIndex: 0,
     };
+  },
+  methods: {
+    checkedItem(item, index) {
+      this.currentIndex = index;
+      this.$emit('checked-item',item)
+    },
   },
 };
 </script>
@@ -46,6 +68,44 @@ export default {
   height: 568px;
   background-color: #f1f4f9;
   border-radius: 8px;
+  overflow: hidden;
+  .require {
+    color: red;
+  }
+  .box-item {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #d6dee5;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    margin: 0 0 8px;
+    .label {
+      padding: 12px 0 12px 12px;
+      line-height: 20px;
+      font-size: 16px;
+      color: #3f3f3f;
+      word-break: break-all;
+      display: block;
+      margin: 0;
+    }
+    .itemplaceholder {
+      word-break: break-all;
+      color: #98a1a8;
+      flex-grow: 1;
+      padding: 12px;
+      margin: 0;
+    }
+    &::after{
+      // content:url(@/assets/delItem.svg)
+    }
+  }
+  .box-item-checked,.box-item:hover {
+    border: 1px dashed  #ff9200;
+  }
 }
 .button::after {
   content: "";

@@ -3,7 +3,7 @@ export const basicType = [
         label: '单行文本框',
         type: 'input-text',
         value: '',
-        placeholder: '',
+        placeholder: '请输入',
         require: false,
         maxLength: 20,
     },

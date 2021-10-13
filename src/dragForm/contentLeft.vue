@@ -3,7 +3,13 @@
     <div class="content">
       <div class="basicType">
         <p>基本类型</p>
-        <div v-for="item in basicType" :key="item.type" class="item">
+        <div
+          v-for="item in basicType"
+          :key="item.type"
+          class="item"
+          draggable=""
+          @dragend="dragEnd($event, item)"
+        >
           <span>
             {{ item.label }}
           </span>
@@ -11,7 +17,13 @@
       </div>
       <div class="optionType">
         <p>选项类型</p>
-        <div v-for="item in optionType" :key="item.type" class="item">
+        <div
+          v-for="item in optionType"
+          :key="item.type"
+          class="item"
+          draggable=""
+          @dragend="dragEnd($event, item)"
+        >
           <span>
             {{ item.label }}
           </span>
@@ -19,7 +31,13 @@
       </div>
       <div class="dateType">
         <p>日期类型</p>
-        <div v-for="item in dateType" :key="item.type" class="item">
+        <div
+          v-for="item in dateType"
+          :key="item.type"
+          class="item"
+          draggable=""
+          @dragend="dragEnd($event, item)"
+        >
           <span>
             {{ item.label }}
           </span>
@@ -27,7 +45,13 @@
       </div>
       <div class="seniorType">
         <p>高级控件</p>
-        <div v-for="item in seniorType" :key="item.type" class="item">
+        <div
+          v-for="item in seniorType"
+          :key="item.type"
+          class="item"
+          draggable=""
+          @dragend="dragEnd($event, item)"
+        >
           <span>
             {{ item.label }}
           </span>
@@ -35,7 +59,13 @@
       </div>
       <div class="detailType">
         <p>明细控件</p>
-        <div v-for="item in detailType" :key="item.type" class="item">
+        <div
+          v-for="item in detailType"
+          :key="item.type"
+          class="item"
+          draggable=""
+          @dragend="dragEnd($event, item)"
+        >
           <span>
             {{ item.label }}
           </span>
@@ -85,6 +115,18 @@ export default {
       },
     },
   },
+  methods: {
+    dragEnd(event, item) {
+      if (
+        534 < event.pageX &&
+        event.pageX < 868 &&
+        192 < event.pageY &&
+        event.pageY < 778
+      ) {
+        this.$emit("drags-item", item);
+      }
+    },
+  },
 };
 </script>
 
@@ -104,7 +146,7 @@ export default {
     p {
       margin: 0;
       padding: 0 7px 8px 7px;
-      font-size:13px;
+      font-size: 13px;
       text-align: left;
     }
     .basicType,
