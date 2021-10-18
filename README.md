@@ -22,3 +22,6 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### npm install sortablejs --save 拖拽插件 （如果报fsevents的错误就把package-lock.json的fsevents删掉）https://github.com/SortableJS/Sortable
+###

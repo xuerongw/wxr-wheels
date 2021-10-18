@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <dragPage></dragPage>
+    <dragPageThree></dragPageThree>
   </div>
 </template>
 
 <script>
-import dragPage from "@/dragForm/dragPage.vue";
+import dragPageThree from "@/dragFormThree/dragPageThree.vue";
 export default {
-  components: { dragPage },
+  components: { dragPageThree },
   name: "App",
   data() {
     return {};
