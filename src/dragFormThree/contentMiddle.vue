@@ -3,18 +3,7 @@
     <div class="header"></div>
     <div class="content" >
       <img src="@/assets/phoneHeader.svg" alt="" />
-      <div
-        v-for="(item, index) in items"
-        :key="index"
-        class="box-item"
-        @click="checkedItem(item, index)"
-        :class="{ 'box-item-checked': currentIndex == index }"
-      >
-        <p class="label">{{ item.label }}</p>
-        <span v-if="item.require" class="require">*</span>
-        <p class="itemplaceholder">{{ item.placeholder }}</p>
-        <!-- <img src="" alt="" class="delItem"> -->
-      </div>
+     <div class="items"></div>
     </div>
     <div class="button"></div>
   </div>
@@ -69,6 +58,10 @@ export default {
   background-color: #f1f4f9;
   border-radius: 8px;
   overflow: hidden;
+  .items{
+    width:100%;
+    min-height:200px
+  }
   .require {
     color: red;
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="content-left">
-    <div class="content">
+    <div class="content" >
       <div class="basicType">
         <p>基本类型</p>
         <div

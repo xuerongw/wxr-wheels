@@ -1,10 +1,10 @@
 <template>
-<!-- 插件实现 -->
+  <!-- 插件实现 -->
   <div class="content-middle">
     <div class="header"></div>
     <div class="content">
       <img src="@/assets/phoneHeader.svg" alt="" />
-      <ul class="itemBox" >
+      <ul class="itemBox">
         <li
           v-for="(item, index) in items"
           :key="index"
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Sortable from 'sortablejs'
+import Sortable from "sortablejs";
 export default {
   props: {
     items: {
@@ -47,26 +47,25 @@ export default {
   },
   methods: {
     // 初始化拖拽
-      initSortable () {
-        this.sortData = [...this.items]
-        const el = document.querySelector('.itemBox')
-        console.log(el);
-        //创建拖拽对象
-        this.sortable = Sortable.create(el, {
-          sort: true, //是否可进行拖拽排序
-          animation: 150,
-          //拖拽完成，移除拖拽之前的位置上的元素，在拖拽之后的位置上添加拖拽元素
-          onEnd: ({newIndex, oldIndex}) => {
-            const val = this.sortData[oldIndex]
-            this.sortData.splice(oldIndex, 1)
-            this.sortData.splice(newIndex, 0, val)
-          }
-        })
-      },
-
+    initSortable() {
+      this.sortData = [...this.items];
+      const el = document.querySelector(".itemBox");
+      console.log(el);
+      //创建拖拽对象
+      this.sortable = Sortable.create(el, {
+        sort: true, //是否可进行拖拽排序
+        animation: 150,
+        //拖拽完成，移除拖拽之前的位置上的元素，在拖拽之后的位置上添加拖拽元素
+        onEnd: ({ newIndex, oldIndex }) => {
+          const val = this.sortData[oldIndex];
+          this.sortData.splice(oldIndex, 1);
+          this.sortData.splice(newIndex, 0, val);
+        },
+      });
+    },
   },
   mounted() {
-    this.initSortable()
+    this.initSortable();
   },
 };
 </script>
