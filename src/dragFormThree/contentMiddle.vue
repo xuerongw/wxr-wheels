@@ -60,10 +60,7 @@ export default {
   overflow: hidden;
   .items{
     width:100%;
-    min-height:200px
-  }
-  .require {
-    color: red;
+    min-height:200px;
   }
   .box-item {
     display: flex;

@@ -1,7 +1,7 @@
 <template>
   <div class="content-left">
     <div class="content" >
-      <div class="basicType">
+      <div class="basicType drag" >
         <p>基本类型</p>
         <div
           v-for="item in basicType"
@@ -15,7 +15,7 @@
           </span>
         </div>
       </div>
-      <div class="optionType">
+      <div class="optionType drag" >
         <p>选项类型</p>
         <div
           v-for="item in optionType"
@@ -29,7 +29,7 @@
           </span>
         </div>
       </div>
-      <div class="dateType">
+      <div class="dateType drag" >
         <p>日期类型</p>
         <div
           v-for="item in dateType"
@@ -43,7 +43,7 @@
           </span>
         </div>
       </div>
-      <div class="seniorType">
+      <div class="seniorType drag" >
         <p>高级控件</p>
         <div
           v-for="item in seniorType"
@@ -57,7 +57,7 @@
           </span>
         </div>
       </div>
-      <div class="detailType">
+      <div class="detailType drag" >
         <p>明细控件</p>
         <div
           v-for="item in detailType"

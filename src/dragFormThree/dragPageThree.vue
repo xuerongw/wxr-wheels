@@ -3,7 +3,7 @@
     <pageHeader :title="'拖拽表单'" :btn-items="btnItems"></pageHeader>
     <div class="content">
       <!-- 控件组件 -->
-      <content-left></content-left>
+      <content-left ref="dragBox"></content-left>
       <!-- 预览组件 -->
       <contentMiddle></contentMiddle>
       <!-- 控件详情 -->
@@ -41,23 +41,31 @@ export default {
   methods: {
     // 初始化拖拽
     initSortable() {
-      const Left = document.querySelector(".basicType");
+      let Left = document.getElementsByClassName("drag");
       const Middle = document.querySelector(".items");
-      console.log(Left);
-      console.log(Middle);
-      new Sortable(Left, {
-        group: {
-          name: "shared",
-          pull: "clone",
-          put: false, // Do not allow items to be put into this list
-        },
-        animation: 150,
-        sort: false, // To disable sorting: set sort to false
+      Left = Array.from(Left);
+      Left.map((item) => {
+        new Sortable(item, {
+          group: {
+            name: "shared",
+            pull: "clone",
+            put: false, // Do not allow items to be put into this list
+          },
+          animation: 150,
+          sort: false, // To disable sorting: set sort to false
+          ghostClass: "ghost",
+          //************* 拖动对象移动样式
+          dragClass: "drag",
+        });
       });
-
       new Sortable(Middle, {
         group: "shared",
         animation: 150,
+        ghostClass: "ghost",
+        onAdd: function (even) {
+          even.item.className='ghost'
+         console.log(even.item.className); 
+        },
       });
     },
   },
