@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <freeDrag></freeDrag>
+    <htmltransfer></htmltransfer>
   </div>
 </template>
 
 <script>
-import freeDrag from "@/freeDrags/freeDrag.vue";
+import htmltransfer from "@/htmlTopdf/htmltransfer.vue";
 export default {
-  components: { freeDrag },
+  components: { htmltransfer },
   name: "App",
   data() {
     return {};
