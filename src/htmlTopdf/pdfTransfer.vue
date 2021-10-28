@@ -2,15 +2,14 @@
   <div class="pdf">
     <button @click="getDocument">下载</button>
     <div class="content" ref="content" id="pdfDom">
-      <span>11111</span>
       <iframe
         src="111.html"
         frameborder="0"
         class="dd"
         ref="iframeContent"
+        id="iframe2"
+        @load="getiframe"
       ></iframe>
-      <div class="die" ref="test"><p class="text">叠加测试</p></div>
-      
     </div>
   </div>
 </template>
@@ -47,6 +46,17 @@ export default {
           w: 150,
           h: 50,
         },
+        {
+          label: "银行账号",
+          value: "333",
+          required: true,
+          key: "bankNumber",
+          _comp: "input-text",
+          x: "555",
+          y: "1450",
+          w: 150,
+          h: 50,
+        },
       ],
     };
   },
@@ -60,10 +70,26 @@ export default {
       setTimeout(() => {
         let ctx = this.canvaArr[0].getContext("2d");
         this.mockData.map((item) => {
+          ctx.font = "50px";
+          ctx.fillStyle = "#ffffff Calibri";
           ctx.fillText(item.label, item.x, item.y);
         });
+        document.write(
+          `<img src="${this.canvaArr[0].toDataURL("image/png")}" alt="">`
+        );
         canvasToPdf(this.canvaArr[0]);
       }, 100);
+    },
+    getiframe() {
+      var iframeDom =
+        this.$refs.iframeContent.contentWindow.document.getElementsByClassName(
+          "font"
+        );
+      // aa= Array.from(aa)
+      iframeDom = [...iframeDom];
+      iframeDom.map((item) => {
+        item.style.fontSize = "50px";
+      });
     },
   },
   mounted() {},
@@ -77,12 +103,12 @@ export default {
 }
 .content {
   width: 100%;
-  height: 100%;
+  height: 200%;
   overflow: hidden;
 }
 .dd {
   width: 100%;
-  height: 100%;
+  height: 200%;
   /* margin-top: -20px; */
 }
 .die {
