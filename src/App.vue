@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <htmltransfer></htmltransfer>
+    <canvasTransform></canvasTransform>
   </div>
 </template>
 
 <script>
-import htmltransfer from "@/htmlTopdf/htmltransfer.vue";
+import canvasTransform from "./canvasTransforms/canvasTransform";
 export default {
-  components: { htmltransfer },
+  components: { canvasTransform },
   name: "App",
   data() {
     return {};

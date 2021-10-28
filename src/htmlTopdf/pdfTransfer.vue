@@ -72,7 +72,7 @@ export default {
         this.mockData.map((item) => {
           ctx.font = "50px";
           ctx.fillStyle = "#ffffff Calibri";
-          ctx.fillText(item.label, item.x, item.y);
+          ctx.fillText(item.label, item.x, item.y,item.w);
         });
         document.write(
           `<img src="${this.canvaArr[0].toDataURL("image/png")}" alt="">`
