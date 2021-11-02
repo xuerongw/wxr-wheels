@@ -64,6 +64,7 @@ export default {
       this.canvas = document.getElementById("canvas");
       this.context = this.canvas.getContext("2d");
       this.context.drawImage(this.imgArr[0], 0, 0, 400, 250);
+
       this.canvas.style.background =
         'url("https://www.kkkk1000.com/images/globalCompositeOperation/bg.jpg")';
       this.flag = true;
