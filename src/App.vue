@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <canvasTransform></canvasTransform>
+    <guaguale></guaguale>
   </div>
 </template>
 
 <script>
-import canvasTransform from "./canvasTransforms/canvasTransform";
+import guaguale from "./canvasTransforms/guaguale";
 export default {
-  components: { canvasTransform },
+  components: { guaguale },
   name: "App",
   data() {
     return {};

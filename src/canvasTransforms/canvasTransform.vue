@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: "canvasTransform",
   data() {
     return {
       canvas: "",
@@ -20,7 +21,7 @@ export default {
         "https://www.kkkk1000.com/images/globalCompositeOperation/clear.png",
       ],
       imgArr: [],
-      flag: false,   // flag 用来限制 点击事件，一张图片只会产生一次效果
+      flag: false, // flag 用来限制 点击事件，一张图片只会产生一次效果
       index: 0,
       res: [],
       width: 0,
@@ -68,7 +69,6 @@ export default {
       this.flag = true;
     },
     diffusion(e) {
-      console.log(this.flag);
       if (this.flag) {
         // this.flag = false;
         this.context.globalCompositeOperation = "destination-out";
