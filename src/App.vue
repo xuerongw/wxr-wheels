@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <knowCanvas></knowCanvas>
+    <knowCanvasTem></knowCanvasTem>
   </div>
 </template>
 
 <script>
-import knowCanvas from "./canvasTransforms/knowCanvas";
+import knowCanvasTem from "./canvasTransforms/knowCanvasTem";
 export default {
-  components: { knowCanvas },
+  components: { knowCanvasTem},
   name: "App",
   data() {
     return {};

@@ -129,13 +129,33 @@ export default {
         ctx.transform("a,b,c,d,e,f")//a 水平缩放绘图 b 水平倾斜绘图  c 垂直倾斜绘图 d	垂直缩放绘图 e	水平移动绘图 f	垂直移动绘图
         ctx.setTransform(1, 0.5, -0.5, 1, 30, 10);//重置前一个变换矩阵然后构建新的矩阵
     },
-    text(){
+    text() {
         let canvas = this.$refs.canvas;
         let ctx = canvas.getContext("2d");
-        ctx.font="字号 字体样式"
-        ctx.textAlign="start"//start end center	 left	right
-        ctx.textBaseline="middle"//基线 alphabetic	默认 top      hanging文本基线是悬挂基线（五线谱）。 middle（五线谱）  ideographic文本基线是表意基线（五线谱）bottom
-        ctx.fillText('文字',"x","y","maxWidth")//fillStyle gradient createLinearGradient
-        
+        ctx.font = "字号 字体样式"
+        ctx.textAlign = "start"//start end center	 left	right
+        ctx.textBaseline = "middle"//基线 alphabetic	默认 top      hanging文本基线是悬挂基线（五线谱）。 middle（五线谱）  ideographic文本基线是表意基线（五线谱）bottom
+        ctx.fillText('文字', "x", "y", "maxWidth")//fillStyle gradient createLinearGradient 填充文字
+        ctx.strokeText('文字', "x", "y")//没有填色的文字，
+        ctx.measureText("hello").width;//检查要输出的文本的宽度 返回一个对象，包含以像素计的指定字体宽度(.width)
+        ctx.drawImage("img,sx剪切,sy,swidth,sheight,x,y,width,height")//在画布上画画布或者图片或者视频
+    },
+    otherFunc() {
+        let canvas = this.$refs.canvas;
+        let ctx = canvas.getContext("2d");
+        ctx.globalAlpha = 0.2//设置透明度
+        ctx.globalCompositeOperation = ""//合成图像与原图像的显示方式
+        // source-over	默认。在目标图像上显示源图像。
+        // source-atop	在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。
+        // source-in	在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。
+        // source-out	在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。
+        // destination-over	在源图像上方显示目标图像。
+        // destination-atop	在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。
+        // destination-in	在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。
+        // destination-out	在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。
+        // lighter	显示源图像 + 目标图像。
+        // copy	显示源图像。忽略目标图像。
+        // xor	使用异或操作对源图像与目标图像进行组合。
     }
+
 }
