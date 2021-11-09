@@ -1,9 +1,10 @@
 <template>
-  <div class="content-middle" >
+  <div class="content-middle">
     <div class="header"></div>
     <div class="content" >
       <img src="@/assets/phoneHeader.svg" alt="" />
-     <div class="items"></div>
+      <div class="items" id="items" data-no="111">
+      </div>
     </div>
     <div class="button"></div>
   </div>
@@ -28,7 +29,7 @@ export default {
   methods: {
     checkedItem(item, index) {
       this.currentIndex = index;
-      this.$emit('checked-item',item)
+      this.$emit("checked-item", item);
     },
   },
 };
@@ -58,9 +59,16 @@ export default {
   background-color: #f1f4f9;
   border-radius: 8px;
   overflow: hidden;
-  .items{
-    width:100%;
-    min-height:200px;
+
+  .items {
+    width: 100%;
+    min-height: 100%;
+    margin-top: 10px;
+    .ghost {
+      span {
+        border: 1px solid red;
+      }
+    }
   }
   .box-item {
     display: flex;
@@ -89,12 +97,13 @@ export default {
       padding: 12px;
       margin: 0;
     }
-    &::after{
+    &::after {
       // content:url(@/assets/delItem.svg)
     }
   }
-  .box-item-checked,.box-item:hover {
-    border: 1px dashed  #ff9200;
+  .box-item-checked,
+  .box-item:hover {
+    border: 1px dashed #ff9200;
   }
 }
 .button::after {

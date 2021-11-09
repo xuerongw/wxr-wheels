@@ -1,74 +1,65 @@
 <template>
   <div class="content-left">
-    <div class="content" >
-      <div class="basicType drag" >
+    <div class="content">
+      <div class="basicType drag">
         <p>基本类型</p>
         <div
           v-for="item in basicType"
           :key="item.type"
           class="item"
           draggable=""
-          @dragend="dragEnd($event, item)"
+          :data-type="item.type"
+          :data-no="111"
         >
-          <span>
-            {{ item.label }}
-          </span>
+          {{ item.label }}
         </div>
       </div>
-      <div class="optionType drag" >
+      <div class="optionType drag">
         <p>选项类型</p>
         <div
           v-for="item in optionType"
           :key="item.type"
           class="item"
           draggable=""
-          @dragend="dragEnd($event, item)"
+          :data-type="item.type"
         >
-          <span>
-            {{ item.label }}
-          </span>
+          {{ item.label }}
         </div>
       </div>
-      <div class="dateType drag" >
+      <div class="dateType drag">
         <p>日期类型</p>
         <div
           v-for="item in dateType"
           :key="item.type"
           class="item"
           draggable=""
-          @dragend="dragEnd($event, item)"
+          :data-type="item.type"
         >
-          <span>
-            {{ item.label }}
-          </span>
+          {{ item.label }}
         </div>
       </div>
-      <div class="seniorType drag" >
+      <div class="seniorType drag">
         <p>高级控件</p>
         <div
           v-for="item in seniorType"
           :key="item.type"
           class="item"
           draggable=""
-          @dragend="dragEnd($event, item)"
+          :data-type="item.type"
         >
-          <span>
-            {{ item.label }}
-          </span>
+          {{ item.label }}
         </div>
       </div>
-      <div class="detailType drag" >
+      <div class="detailType drag">
         <p>明细控件</p>
         <div
           v-for="item in detailType"
           :key="item.type"
           class="item"
           draggable=""
-          @dragend="dragEnd($event, item)"
+          :data-type="item.type"
         >
-          <span>
-            {{ item.label }}
-          </span>
+          {{ item.label }}
         </div>
       </div>
     </div>
@@ -115,18 +106,7 @@ export default {
       },
     },
   },
-  methods: {
-    dragEnd(event, item) {
-      if (
-        534 < event.pageX &&
-        event.pageX < 868 &&
-        192 < event.pageY &&
-        event.pageY < 778
-      ) {
-        this.$emit("drags-item", item);
-      }
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -168,10 +148,7 @@ export default {
       border: 1px dashed #6f6e83;
       background-color: #4b4963;
       cursor: move;
-
-      span {
-        line-height: 30px;
-      }
+      line-height: 30px;
     }
   }
 }

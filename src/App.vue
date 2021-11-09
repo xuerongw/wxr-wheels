@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <knowCanvasTem></knowCanvasTem>
+    <dragPageFive></dragPageFive>
   </div>
 </template>
 
 <script>
-import knowCanvasTem from "./canvasTransforms/knowCanvasTem";
+import dragPageFive from "./dragFormFive/dragPageFive";
 export default {
-  components: { knowCanvasTem},
+  components: { dragPageFive },
   name: "App",
   data() {
     return {};
@@ -23,6 +23,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height:100%
+  height: 100%;
+  min-width: 1100px;
 }
 </style>

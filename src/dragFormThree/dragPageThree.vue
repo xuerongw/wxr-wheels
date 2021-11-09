@@ -36,6 +36,7 @@ export default {
         },
       ],
       items: [],
+      currentType: "",
     };
   },
   methods: {
@@ -48,24 +49,47 @@ export default {
         new Sortable(item, {
           group: {
             name: "shared",
+            put: false,
             pull: "clone",
-            put: false, // Do not allow items to be put into this list
+            // Do not allow items to be put into this list
           },
           animation: 150,
           sort: false, // To disable sorting: set sort to false
-          ghostClass: "ghost",
-          //************* 拖动对象移动样式
-          dragClass: "drag",
         });
       });
       new Sortable(Middle, {
         group: "shared",
         animation: 150,
-        ghostClass: "ghost",
-        onAdd: function (even) {
-          even.item.className='ghost'
-         console.log(even.item.className); 
+        chosenClass: "chosen",
+        dataIdAttr: "data-no",
+        // 元素从一个列表拖拽到另一个列表
+        onAdd: function (/**Event*/ evt) {
+          evt.item.style.display = "inline-block";
+          evt.item.style.width = "100%";
+          evt.item.style.height = "45px";
+          evt.item.style.padding = "0 12px";
+          evt.item.style.lineHeight = "45px";
+          evt.item.style.border = "1px solid #d6dee5";
+          evt.item.style.backgroundColor = "white";
+          evt.item.style.textAlign = "left";
+          console.log(evt);
+          // var el = document.getElementById("items");
+          // var sortable = Sortable.create(el);
+          // console.log(sortable.toArray());
+          // let text=evt.item.innerText
+          // evt.item.innerHTML=`${text}<span style="color:red" v-show="">*</span>`
+          console.log();
         },
+
+        // onUnchoose: function (evt) {
+        //   evt.item.style.border = "1px dashed red";
+        // },
+        // 元素被选中
+        // onChoose: function (/**Event*/ evt) {
+        //   // console.log(document.getElementsByClassName('items'));
+        //   // console.log(evt.item.siblings());
+        //   // evt.item.style.border = "1px dashed red";
+        // },
       });
     },
   },
@@ -79,6 +103,9 @@ export default {
 .dragPage {
   height: 100%;
   overflow: hidden;
+}
+.chosen {
+  border: solid 2px #3089dc !important;
 }
 .content {
   width: 100%;

@@ -27,3 +27,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ###  npm install vue-draggable-resizable 拖拽加缩放的插件
 ### npm install --save html2canvas html转canvas
 ### npm i jspdf -S  canvas转pdf
+###  yarn add vuedraggable
