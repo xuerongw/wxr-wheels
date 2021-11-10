@@ -11,7 +11,7 @@ export const basicType = [
         label: '多行文本框',
         type: 'input-area',
         value: '',
-        placeholder: '',
+        placeholder: '请输入',
         require: false,
         maxLength: 50000,
 

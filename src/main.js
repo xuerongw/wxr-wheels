@@ -4,6 +4,7 @@ import router from './router'
 import '@/initWheel.js'
 import '@/element.js'
 import '@/dragFormFive/components/global.js'
+import '@/assets/public.css'
 import htmlToPdf from './htmlTopdf/utils/htmlToPdf'
 // 使用Vue.use()方法就会调用工具方法中的install方法
 Vue.use(htmlToPdf)

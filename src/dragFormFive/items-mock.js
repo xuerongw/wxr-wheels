@@ -18,7 +18,7 @@ export const basicType = [
     },
     {
         label: '说明文字',
-        type: 'input-remarks',
+        type: 'input-explain',
         value: '',
         placeholder: '',
         require: false,

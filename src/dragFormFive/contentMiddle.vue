@@ -27,7 +27,7 @@
               alt=""
               v-show="showdelIcon && showIndex == index"
               class="showdelIcon"
-              @click="delItem(item, index)"
+              @click.stop="delItem(item, index)"
             />
           </div>
         </transition-group>
@@ -39,7 +39,7 @@
 
 <script>
 import draggable from "vuedraggable";
-import  bus  from '@/bus.js'
+import bus from "@/bus.js";
 export default {
   //注册draggable组件
   components: {
@@ -50,7 +50,7 @@ export default {
       dropList: [
         {
           label: "标题",
-          type: "input-text",
+          type: "input-title",
           value: "",
           placeholder: "请输入",
           require: true,
@@ -74,13 +74,12 @@ export default {
       if (e.draggedContext.element.id == 11) return false;
       return true;
     },
-    onAdd(e){
-      console.log(e);
-     this.choosed(e.newIndex)
+    onAdd(e) {
+      this.choosed(e.newIndex);
     },
     choosed(index) {
       this.chooseIndex = index;
-      bus.$emit('chooseItem',this.dropList[index])
+      bus.$emit("chooseItem", this.dropList[index]);
     },
     showDel(item, index) {
       if (!item.require) {
@@ -93,6 +92,7 @@ export default {
     delItem(item, index) {
       if (!item.require && this.dropList.length != 1) {
         this.dropList.splice(index, 1);
+        this.choosed(0)
       } else {
         this.$message({
           message: "该控件不可删除",
@@ -102,7 +102,7 @@ export default {
     },
   },
   mounted() {
-    this.choosed(0)
+    this.choosed(0);
   },
 };
 
@@ -160,7 +160,7 @@ Array.prototype.filter =
 }
 .drop-item:hover {
   border: 1px dashed #ff9200;
-  background-color: rgba(255, 248, 220,0.4);
+  background-color: rgba(255, 248, 220, 0.4);
 }
 .drop-item-choosed {
   border: 1px dashed #ff9200;

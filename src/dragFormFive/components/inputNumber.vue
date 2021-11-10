@@ -1,5 +1,5 @@
 <template>
-  <div class="input-text">
+  <div class="input-number">
     <p class="inline-title">控件使用说明</p>
     <div class="inline-wrap">
       <div class="inline-title">
@@ -7,21 +7,26 @@
         <span class="tips">最多20个字</span>
       </div>
 
-      <input type="text" class="inline-input" maxlength="20" v-model="data.label"/>
+      <input
+        type="text"
+        class="inline-input"
+        maxlength="20"
+        v-model="data.label"
+      />
     </div>
     <div class="inline-wrap">
       <div class="inline-title">
         提示语
         <span class="tips">最多20个字</span>
       </div>
-      <input type="text" class="inline-input" />
+      <input type="text" class="inline-input" v-model="data.placeholder" />
     </div>
     <div class="inline-wrap">
       <div class="inline-title">
         <span class="label">是否必填</span>
       </div>
       <div class="inline-title">
-        <el-checkbox v-model="checked"></el-checkbox>
+        <el-checkbox v-model="data.require"></el-checkbox>
         <span class="require">必填</span>
       </div>
     </div>
@@ -32,21 +37,28 @@
       </div>
       <input type="text" class="inline-input" />
     </div>
-     <div class="inline-title">
-        <el-checkbox v-model="checked"></el-checkbox>
-        <span class="require">默认值设置</span>
+     <div class="inline-wrap">
+      <div class="inline-title">
+        选择可输入的小数位数
       </div>
+      <input type="serch" class="inline-input" />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name:'textDetail',
-  props:{
-    data:{
-      type:Object,
-    }
-  }
+  name: "input-number",
+  props: {
+    data: {
+      type: Object,
+    },
+  },
+  data() {
+    return {
+      showDefault: false,
+    };
+  },
 };
 </script>
 
@@ -54,45 +66,20 @@ export default {
 .input-text {
   padding: 0 12px 0 8px;
   height: 550px;
-  // overflow-y: auto;
 }
-.inline-wrap {
-  margin-bottom: 20px;
-}
-.inline-title {
-  line-height: 22px;
-  font-size: 13px;
-  word-break: break-all;
-  color: #d4d3e5;
-  text-align: left;
-  margin-bottom: 10px;
-  .tips {
-    font-size: 12px;
-    margin-left: 8px;
-    color: #6e6a83;
-  }
-}
-.inline-input {
-  width: 90%;
-  height: 30px;
-  padding: 0 12px;
-  font-size: 12px;
-  color: #fff;
-  background-color: #3f3d54;
-  border: 1px solid #525065;
-}
+
 /deep/.el-checkbox__input.is-checked .el-checkbox__inner,
 .el-checkbox__input.is-indeterminate .el-checkbox__inner {
   background-color: #ff9200;
   border-color: #ff9200;
 }
-/deep/.el-checkbox__inner{
-  background-color:transparent;
+/deep/.el-checkbox__inner {
+  background-color: transparent;
 }
-/deep/.el-checkbox__inner:hover{
-   border: 1px solid #fff;
+/deep/.el-checkbox__inner:hover {
+  border: 1px solid #fff;
 }
-.require{
-  margin-left:8px
+.require {
+  margin-left: 8px;
 }
 </style>
