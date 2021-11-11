@@ -152,18 +152,5 @@ export default {
     }
   }
 }
-::-webkit-scrollbar {
-  overflow: visible;
-  width: 8px;
-  height: 8px;
-  padding: 100px 0 0;
-  border: 1px solid transparent;
-  background-color: #52506a;
-  /* background-clip: padding-box; */
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgba(144, 147, 153, 0.3);
-  border-color: #434159;
-  border-radius: 6px;
-}
+
 </style>

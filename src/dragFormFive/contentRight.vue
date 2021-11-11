@@ -51,6 +51,14 @@ export default {
           return "input-number";
         case "input-money":
           return "input-money";
+        case "upload-image":
+          return "upload-image";
+        case "upload-file":
+          return "upload-file";
+        case "urgent-level":
+          return "urgent-level";
+        case "input-radio":
+          return "input-radio";
       }
     },
     handleClick() {},

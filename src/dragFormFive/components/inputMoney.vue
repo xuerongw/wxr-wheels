@@ -6,7 +6,6 @@
         标题
         <span class="tips">最多20个字</span>
       </div>
-
       <input
         type="text"
         class="inline-input"
@@ -19,7 +18,7 @@
         提示语
         <span class="tips">最多20个字</span>
       </div>
-      <input type="text" class="inline-input" v-model="data.placeholder" />
+      <input type="text" class="inline-input" v-model="data.placeholder" maxlength="20"/>
     </div>
     <div class="inline-wrap">
       <div class="inline-title">
@@ -35,7 +34,7 @@
         字数限制
         <span class="tips">最多允许输入5000字</span>
       </div>
-      <input type="text" class="inline-input" />
+      <input type="text" class="inline-input" maxlength="5000"/>
     </div>
      <div class="inline-wrap">
       <div class="inline-title">

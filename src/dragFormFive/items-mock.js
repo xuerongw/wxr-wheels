@@ -58,29 +58,27 @@ export const basicType = [
         label: '紧急程度',
         type: 'urgent-level',
         value: '',
-        require: false,
+        require: true,
     },
 ]
 export const optionType = [
     {
         label: '单选框',
-        type: 'radio',
+        type: 'input-radio',
         value: '',
         opitons: [
             {
                 label: '单选框选项一',
-                value: 'one'
             },
             {
                 label: '单选框选项二',
-                value: 'tow'
             }
         ],
         require: false,
     },
     {
         label: '多选框',
-        type: 'checkbox',
+        type: 'input-checkbox',
         value: '',
         require: false,
         opitons: [

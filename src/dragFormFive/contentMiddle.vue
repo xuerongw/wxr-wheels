@@ -18,10 +18,34 @@
             @click="choosed(index)"
             :class="[index === chooseIndex ? 'drop-item-choosed' : '']"
             @mouseenter="showDel(item, index)"
-            @mouseleave="showDel(item, index)"
+            @mouseleave="hiddenDel(item)"
           >
-            {{ item.label }}
-            <span v-if="item.require" style="color: red">*</span>
+            <p class="input-label">
+              <span>{{ item.label }}</span>
+              <span v-if="item.require" style="color: red;margin-left:4px">*</span>
+            </p>
+            <div class="input-right">
+              <p class="input-placeholder">
+                {{ item.placeholder }}
+              </p>
+              <img
+                class="otherIcon"
+                src="@/assets/upload.svg"
+                alt=""
+                v-if="
+                  item.type === 'upload-image' || item.type === 'upload-file'
+                "
+              />
+              <img
+                class="otherIcon"
+                src="@/assets/more.svg"
+                alt=""
+                v-if="
+                  item.type === 'input-radio' || item.type === 'input-checkbox'
+                "
+              />
+            </div>
+
             <img
               src="@/assets/redclose.svg"
               alt=""
@@ -55,6 +79,7 @@ export default {
           placeholder: "请输入",
           require: true,
           maxLength: 20,
+          fixed: true,
         },
       ],
       moveId: -1,
@@ -82,17 +107,20 @@ export default {
       bus.$emit("chooseItem", this.dropList[index]);
     },
     showDel(item, index) {
-      if (!item.require) {
-        this.showdelIcon = !this.showdelIcon;
+      if (!item.fixed) {
+        this.showdelIcon = true;
         this.showIndex = index;
-      } else {
+      }
+    },
+    hiddenDel(item) {
+      if (!item.fixed) {
         this.showdelIcon = false;
       }
     },
     delItem(item, index) {
-      if (!item.require && this.dropList.length != 1) {
+      if (!item.fixed && this.dropList.length != 1) {
         this.dropList.splice(index, 1);
-        this.choosed(0)
+        this.choosed(0);
       } else {
         this.$message({
           message: "该控件不可删除",
@@ -151,7 +179,7 @@ Array.prototype.filter =
   position: relative;
   background-color: white;
   width: 92%;
-  height: 45px;
+  min-height: 45px;
   padding: 0 12px;
   line-height: 45px;
   border: 1px solid #d6dee5;
@@ -164,6 +192,30 @@ Array.prototype.filter =
 }
 .drop-item-choosed {
   border: 1px dashed #ff9200;
+}
+.input-label {
+  display: inline-block;
+  position: absolute;
+  /* top: 5px; */
+  width: 40%;
+  margin: 0;
+}
+.input-right {
+  display: flex;
+  justify-items: end;
+  width: 70%;
+  float: right;
+}
+.input-placeholder {
+  color: #98a1a8;
+  padding: 0 12px;
+  margin: 0;
+  min-width:170px
+}
+.otherIcon {
+  width: 22px;
+  height: 20px;
+  margin-top: 12px;
 }
 .showdelIcon {
   width: 16px;

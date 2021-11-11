@@ -6,7 +6,6 @@
         标题
         <span class="tips">最多20个字</span>
       </div>
-
       <input
         type="text"
         class="inline-input"
@@ -19,9 +18,13 @@
         说明文字
         <span class="tips">最多2000个字</span>
       </div>
-      <input type="text" class="inline-area" v-model="data.placeholder" />
+      <input
+        type="text"
+        class="inline-area"
+        v-model="data.placeholder"
+        maxlength="2000"
+      />
     </div>
-
   </div>
 </template>
 
@@ -46,5 +49,4 @@ export default {
   padding: 0 12px 0 8px;
   height: 550px;
 }
-
 </style>

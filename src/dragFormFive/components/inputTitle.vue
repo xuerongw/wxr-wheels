@@ -7,7 +7,7 @@
         提示语
         <span class="tips">最多20个字</span>
       </div>
-      <input type="text" class="inline-input" v-model="data.placeholder"/>
+      <input type="text" class="inline-input" v-model="data.placeholder" maxlength="20"/>
     </div>
     </div>
   </div>
