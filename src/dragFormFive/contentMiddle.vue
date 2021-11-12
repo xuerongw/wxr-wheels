@@ -18,41 +18,20 @@
             @click="choosed(index)"
             :class="[index === chooseIndex ? 'drop-item-choosed' : '']"
             @mouseenter="showDel(item, index)"
-            @mouseleave="hiddenDel(item)"
+            @mouseleave="hiddenDel(index)"
           >
-            <p class="input-label">
-              <span>{{ item.label }}</span>
-              <span v-if="item.require" style="color: red;margin-left:4px">*</span>
-            </p>
-            <div class="input-right">
-              <p class="input-placeholder">
-                {{ item.placeholder }}
-              </p>
-              <img
-                class="otherIcon"
-                src="@/assets/upload.svg"
-                alt=""
-                v-if="
-                  item.type === 'upload-image' || item.type === 'upload-file'
-                "
-              />
-              <img
-                class="otherIcon"
-                src="@/assets/more.svg"
-                alt=""
-                v-if="
-                  item.type === 'input-radio' || item.type === 'input-checkbox'
-                "
-              />
+            <div v-if="!item.childItem" class="commom-controls">
+              <commomControl
+                :item="item"
+                :Index="index"
+                :showIndex="showIndex"
+                :showdelIcon="showdelIcon"
+                @delIndex="delItem"
+              ></commomControl>
             </div>
-
-            <img
-              src="@/assets/redclose.svg"
-              alt=""
-              v-show="showdelIcon && showIndex == index"
-              class="showdelIcon"
-              @click.stop="delItem(item, index)"
-            />
+            <div v-else class="complex-controls">
+              <complexControl :Item="item" :Index="index"></complexControl>
+            </div>
           </div>
         </transition-group>
       </draggable>
@@ -63,11 +42,15 @@
 
 <script>
 import draggable from "vuedraggable";
+import commomControl from "./commomControl";
+import complexControl from "./complexControl";
 import bus from "@/bus.js";
 export default {
   //注册draggable组件
   components: {
     draggable,
+    commomControl,
+    complexControl,
   },
   data() {
     return {
@@ -85,7 +68,7 @@ export default {
       moveId: -1,
       chooseIndex: 0,
       showdelIcon: false,
-      showIndex: "",
+      showIndex: 0,
     };
   },
   methods: {
@@ -99,15 +82,8 @@ export default {
       if (e.draggedContext.element.id == 11) return false;
       return true;
     },
-    onAdd(e) {
-      this.choosed(e.newIndex);
-    },
-    choosed(index) {
-      this.chooseIndex = index;
-      bus.$emit("chooseItem", this.dropList[index]);
-    },
     showDel(item, index) {
-      if (!item.fixed) {
+      if ((!item.fixed, index)) {
         this.showdelIcon = true;
         this.showIndex = index;
       }
@@ -117,8 +93,15 @@ export default {
         this.showdelIcon = false;
       }
     },
-    delItem(item, index) {
-      if (!item.fixed && this.dropList.length != 1) {
+    onAdd(e) {
+      this.choosed(e.newIndex);
+    },
+    choosed(index) {
+      this.chooseIndex = index;
+      bus.$emit("chooseItem", this.dropList[index]);
+    },
+    delItem(index) {
+      if (!this.dropList[index].fixed && this.dropList.length != 1) {
         this.dropList.splice(index, 1);
         this.choosed(0);
       } else {
@@ -186,6 +169,11 @@ Array.prototype.filter =
   text-align: left;
   margin-bottom: 10px;
 }
+.complex-controls,
+.commom-controls {
+  width: 92%;
+  min-height: 45px;
+}
 .drop-item:hover {
   border: 1px dashed #ff9200;
   background-color: rgba(255, 248, 220, 0.4);
@@ -210,7 +198,7 @@ Array.prototype.filter =
   color: #98a1a8;
   padding: 0 12px;
   margin: 0;
-  min-width:170px
+  min-width: 170px;
 }
 .otherIcon {
   width: 22px;

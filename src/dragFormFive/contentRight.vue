@@ -59,6 +59,8 @@ export default {
           return "urgent-level";
         case "input-radio":
           return "input-radio";
+        case "date-picker":
+          return "date-picker";
       }
     },
     handleClick() {},
@@ -71,7 +73,7 @@ export default {
 
 <style scoped lang="less">
 .content-right {
-  width: 334px;
+  min-width: 334px;
   height: 660px;
   margin: 20px 30px;
   background-color: #4b4963;

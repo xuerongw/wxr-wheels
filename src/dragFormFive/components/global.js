@@ -8,6 +8,7 @@ import inputRadio from './inputRadio'
 import uploadImage from './uploadImage'
 import uploadFile from './uploadFile'
 import urgentLevel from './urgentLevel'
+import datePicker from './datePicker'
 
 
 Vue.component('input-text', inputText)
@@ -19,3 +20,4 @@ Vue.component('input-radio', inputRadio)
 Vue.component('upload-image', uploadImage)
 Vue.component('upload-file', uploadFile)
 Vue.component('urgent-level', urgentLevel)
+Vue.component('date-picker', datePicker)

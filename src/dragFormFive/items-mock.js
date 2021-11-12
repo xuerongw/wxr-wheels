@@ -108,9 +108,14 @@ export const optionType = [
 export const dateType = [
     {
         label: '日期选择',
-        type: 'dete-picker',
-        value: '',
+        type: 'date-picker',
+        childItem: [
+            {label:'开始日期'}
+        ],
         require: false,
+        startLabel:'',
+        endLabel:'',
+
     },
     {
         label: '日期区间',
