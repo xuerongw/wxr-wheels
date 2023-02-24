@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <dragPageFive></dragPageFive>
+    <myTable> </myTable>
   </div>
 </template>
 
 <script>
-import dragPageFive from "./dragFormFive/dragPageFive";
+import myTable from "./table/myTable";
 export default {
-  components: { dragPageFive },
+  components: { myTable },
   name: "App",
   data() {
     return {};
