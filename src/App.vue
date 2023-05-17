@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <myTable> </myTable>
+    <button @click="detailShow = true">打开弹框</button>
+    <PcSignature :visible.sync="detailShow"> </PcSignature>
   </div>
 </template>
 
 <script>
-import myTable from "./table/myTable";
 export default {
-  components: { myTable },
+  components: {
+    PcSignature: () => import("./canvas/PcSignature"),
+  },
   name: "App",
   data() {
-    return {};
+    return {
+      detailShow: false,
+    };
   },
-  methods: {},
 };
 </script>
 

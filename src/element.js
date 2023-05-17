@@ -10,6 +10,8 @@ import {
   CheckboxGroup,
   Table,
   TableColumn,
+  Pagination,
+  Dialog,
 } from "element-ui";
 Vue.use(DatePicker);
 Vue.use(Button);
@@ -19,4 +21,6 @@ Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Pagination);
+Vue.use(Dialog);
 Vue.prototype.$message = Message;
