@@ -1,0 +1,29 @@
+{
+  "table_name": "table_name",
+  "col_name": [
+    "name",
+    "type",
+    "is_primary_key",
+    "source_db",
+    "source_table",
+    "table_field_name"
+  ],
+  "field_list": [
+    {
+      "name": "1",
+      "type": "2",
+      "is_primary_key": "3",
+      "source_db": "4",
+      "source_table": "5",
+      "table_field_name": "6"
+    },
+    {
+      "name": "7",
+      "type": "8",
+      "is_primary_key": "9",
+      "source_db": "10",
+      "source_table": "11",
+      "table_field_name": "12"
+    }
+  ]
+}

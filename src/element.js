@@ -12,7 +12,9 @@ import {
   TableColumn,
   Pagination,
   Dialog,
+  Input,
 } from "element-ui";
+Vue.use(Input);
 Vue.use(DatePicker);
 Vue.use(Button);
 Vue.use(Tabs);

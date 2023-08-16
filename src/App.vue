@@ -1,14 +1,15 @@
 <template>
   <div id="app">
     <button @click="detailShow = true">打开弹框</button>
-    <PcSignature :visible.sync="detailShow"> </PcSignature>
+    <JsonChange> </JsonChange>
   </div>
 </template>
 
 <script>
 export default {
   components: {
-    PcSignature: () => import("./canvas/PcSignature"),
+    // PcSignature: () => import("./canvas/PcSignature"),
+    JsonChange: () => import("./json-change/JsonChange"),
   },
   name: "App",
   data() {
